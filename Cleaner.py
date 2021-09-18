@@ -1,4 +1,4 @@
-import os
+import os,time
 
 #Getting files names to delete
 eolist = []
@@ -11,10 +11,11 @@ with os.scandir('./') as entries:
     print('Number of files: ',len(eolist))
 
 #Deleting files
-op = input('Continue:')
+op = input('Continue(Y/N):')
 if op == 'y' or op == 'Y':
     for i in eolist:
         try:
             os.unlink(i)
         except:
             print('Files can not be deleted!')
+            time.sleep(1)
